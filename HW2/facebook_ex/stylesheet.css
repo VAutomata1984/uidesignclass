@@ -1,0 +1,56 @@
+/* Main & Branding */
+#container{
+  width: 600px;
+  margin: 50px;
+}
+
+#fb_brand{
+  background-color: rgb(36, 140, 244);
+  color: #ffff;
+  padding: 20px 0px 20px 50px;
+}
+
+/* Top Post */
+
+#top_post{
+  margin: 10px;
+}
+
+#top_post_image{
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  display: inline-block;
+}
+
+#top_post_text{
+  width: 250px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px 0px 0px 10px;
+}
+
+/* Reply Posts */
+
+.reply_post{
+  background-color: lightblue;
+  width: 350px;
+  margin-left: 65px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.reply_post_image{
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  display: inline-block;
+}
+
+.reply_post_text{
+  width: 250px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+}

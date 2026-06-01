@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Design HW 3 - Problem 2: Tweet Post</title>
+
+  <!--
+  Author: Matthew Vollo
+    UI Design (COMS 4170) - Javascript Warmup
+
+    Requirements: 
+    - Replicate functionality of writing and posting a tweet. 
+    - Tweet has a max of 30 characters. With a feedback letting you know how many chars you have left to type. 
+    - If the tweet suprasses 30 characters, the number becomes negative and you are unable to tweet. 
+
+    Date: 01/28/2026 - 01/31/2026
+  --> 
+
+  <script src=https://code.jquery.com/jquery-3.3.1.min.js crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <style> 
+    #container{
+      margin: 20px;
+    }
+
+    #tweet_post{
+      width: 300px;
+      margin-bottom: 5px;
+    }
+
+    #char_count{
+      color: gray;
+    }
+
+    .post{ 
+      width: 300px;
+      border-style: dotted;
+      margin-bottom: 5px;
+    }
+  </style>
+
+  <script> 
+    let count = 30
+
+    function incrementCount(c){
+      return c + 1; 
+    }
+
+    function decrementCount(c){
+      return c - 1;
+    }
+
+    function createPost(){
+      let tweetText = $("#tweet_post").val();
+
+      let new_post = $("<div class='post'></div>");
+      new_post.html("<strong> user </strong> " + tweetText);
+      $("#post_updates").prepend(new_post);
+
+      $("#tweet_post").val("")
+      count = 30;
+      $("#char_count").html(count);
+
+      $("#tweet_post").focus(); 
+      $("#tweet_post").select();
+    }
+
+    $(document).ready(function(){
+      $("#char_count").html(count);
+
+      $("#tweet_form").on("submit", function(e){
+        e.preventDefault();
+
+        let text = $("#tweet_post").val().trim();
+
+        if (text === "") return;
+        createPost();
+
+      })
+
+      $("#tweet_post").on("keydown",function(event){
+        if (event.key === "Backspace" || event.key === "Delete") {
+          if (count < 30){
+            count = incrementCount(count)
+          }
+        } else if (event.key.length === 1) {
+          count = decrementCount(count)
+        }
+
+        $("#char_count").html(count)
+
+        if (count < 0){
+          $("#char_count").css({
+            "color": "red",
+            "font-weight":"700"
+          })
+
+          $("#post_tweet").css({
+            "opacity": "0.5",
+            "cursor": "not-allowed"
+          })
+          
+          $("#post_tweet").prop("disabled",true)
+
+        } else{
+          $("#char_count").css({
+            "color": "gray",
+            "font-weight": "400"
+          })
+
+          $("#post_tweet").css({
+            "opacity": "1",
+            "cursor": "pointer"
+          })
+
+          $("#post_tweet").prop("disabled",false)
+        }
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div id="container"> 
+    <div id="tweet"> 
+      <form id="tweet_form"> 
+        <label for="tweet_post">Tweet:</label> <br> 
+        <input type="text" id="tweet_post" name="tweet_post" placeholder="Say Something!"> <br>
+        <span id="char_count"></span>
+        <input type="submit" id="post_tweet" value="Post Tweet"> <br>
+      </form>
+    </div>
+
+    <p class="mb-1 mt-5"> POSTS</p>
+    <div id="post_updates"> 
+    </div>
+  </div>
+  
+</body>
+</html>
