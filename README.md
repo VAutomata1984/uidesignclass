@@ -1,2 +1,2 @@
 # uidesignclass
-Homeworks that I did for COMS 4170 (all material found online)
+Homework for COMS 4170 class (all class material from class website).
