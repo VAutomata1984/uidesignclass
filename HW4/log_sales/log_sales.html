@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI HW 4 - MVC Paper Sales with Drag & Drop and Autocomplete Widgets</title>
+
+  <!-- Bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+
+  <!-- JQuery -->
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- The Log Sales -->
+  <script src="log_sales.js"></script>
+
+  <!--
+    Author: Matthew Vollo
+    UI Design (COMS 4170) - HW 4
+    Date: 03/10/2026 - 04/28/2026 (I took long hiatus)
+
+    NOTES FOR THIS TASK: 
+    1) Implemented in HTML, CSS, Bootstrap, JavaScript, and JQuery.
+    2) Note, there is no back-end, so the results won’t actually save if you close the page and open it again.
+    3) Focus on the implementation of features, rather than design
+  -->
+
+  <style>
+    #header_div{
+      height: 220px;
+      background-color: #69b3e7;
+      padding-top: 30px;
+      padding-left: 20px;
+    }
+
+    #the_form, #dynamic_content{
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+
+    #log_paper {
+      width: 300px;
+      /* border-color: red; */
+    }
+
+    .error{
+      border: 2px solid red;
+    }
+    
+    .error::placeholder {
+      color: red;
+      font-weight: bold;
+      opacity: 1;
+    } 
+
+    #trash{
+      margin-top: 50px;
+      padding-left: 20px;
+      background-color: gray;
+      width: 1175px;
+      height: 80px;
+      border: 2px solid black;
+
+      display: flex;
+      align-items: center;
+    }
+
+    .trash_highlight{
+      background-color: yellow;
+    }
+
+    #dynamic_content .row:hover{
+      background-color: lightyellow;
+      cursor: move;
+    }
+ 
+
+  </style>
+</head>
+<body>
+  <div id="container"> 
+    <div id="header_div">  
+      <h2> Columbia Paper Infinity </h2> 
+      <div id="trash"> Trash </div>
+    </div>
+
+    <div>          
+      <form id="the_form"> 
+        <div class="row gx-1"> 
+          <div class="col-lg-3"> <label> Log your paper sales: </label> </div>
+          <div class="col-lg-3"> <input type="text" id="log_paper" placeholder="Client"> </div> <!-- Put Client here -->
+          <div class="col-lg-3"> <input type="text" id="reams" placeholder="# Reams"> </div> <!-- Put # Reams here -->
+          <div class="col-lg-3"> <input type="submit" value="Submit"></div>
+        </div>
+      </form>
+      <div id="dynamic_content"> 
+      </div>
+      
+    </div>
+
+
+  </div>
+  
+  
+</body>
+</html>
