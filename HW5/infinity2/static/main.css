@@ -1,0 +1,54 @@
+#welcome_sign{
+    color:rgb(75, 75, 246);
+    margin: 10px 0px 10px 0px;
+}
+
+/* Log Sales Styles*/ 
+#header_div{
+    height: 220px;
+    background-color: #69b3e7;
+    padding-top: 30px;
+    padding-left: 20px;
+  }
+
+  #the_form, #dynamic_content{
+    padding-top: 20px;
+    padding-left: 20px;
+  }
+
+  #log_paper {
+    width: 300px;
+    /* border-color: red; */
+  }
+
+  .error{
+    border: 2px solid red;
+  }
+  
+  .error::placeholder {
+    color: red;
+    font-weight: bold;
+    opacity: 1;
+  } 
+
+  #trash{
+    margin-top: 50px;
+    padding-left: 20px;
+    background-color: gray;
+    width: 1175px;
+    height: 80px;
+    border: 2px solid black;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .trash_highlight{
+    background-color: yellow;
+  }
+
+  #dynamic_content .row:hover{
+    background-color: lightyellow;
+    cursor: move;
+  }
+

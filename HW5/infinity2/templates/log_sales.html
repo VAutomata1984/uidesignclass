@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <!-- The Log Sales -->
+  <script type="text/javascript" src="{{url_for('static', filename='log_sales.js')}}"> </script>
+
+  <script> 
+    let sales = {{sales|tojson}}
+    let clients = {{clients|tojson}}
+  
+    console.log(sales)
+    console.log(clients)
+
+  </script>
+
+  <!--
+    This is code from HW 4 being reused from HW 5. 
+  -->
+  <div id="container"> 
+    <div id="header_div">  
+      <h2> Columbia Paper Infinity </h2> 
+      <div id="trash"> Trash </div>
+    </div>
+
+    <div>          
+      <form id="the_form"> 
+        <div class="row gx-1"> 
+          <div class="col-lg-3"> <label> Log your paper sales: </label> </div>
+          <div class="col-lg-3"> <input type="text" id="log_paper" placeholder="Client"> </div> <!-- Put Client here -->
+          <div class="col-lg-3"> <input type="text" id="reams" placeholder="# Reams"> </div> <!-- Put # Reams here -->
+          <div class="col-lg-3"> <input type="submit" value="Submit"></div>
+        </div>
+      </form>
+      <div id="dynamic_content"> 
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
