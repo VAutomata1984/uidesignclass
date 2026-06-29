@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"> </script>
+
+<h1> NYC CafeSearch  </h1>
+<p> Want to work remotely yet escape the confines of your small studio apartment? </p> 
+<p> Or looking to find a spot with the best coffee? This website has you covered.</p>
+
+<br> 
+<h2> Our favorites:</h2>
+
+<div id="homepage_display"> </div>
+
+{% endblock %}

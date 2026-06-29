@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1> {{games[id].title}}</h1>
+<img style="height:300px; width: 400px;" src="{{games[id].image}}"> 
+<br>
+<p>  <b> Year: </b> {{games[id].year}} </p>
+<p>  <b> Summary: </b> {{games[id].summary}} </p>
+<p>  <b> Developer: </b> {{games[id].dev}} </p>
+<p>  <b> Publisher: </b> {{games[id].pub}} </p>
+<p>  <b> Platforms: </b> {{games[id].platforms}} </p>
+<p>  <b> Genre: </b> {{games[id].genre}} </p>
+<p>  <b> Mode: </b> {{games[id].mode}} </p>
+<p>  <b> Where to buy: </b> {{games[id].w2b}}  </p>
+<p>  <b> Similar Games: </b> 
+  {% for similar_id in games[id].similar %}
+  {{games[similar_id].title}}{% if not loop.last %}, {% endif %}
+  {% endfor %}
+</p>
+
+<br> 
+<p> Note: All summaries are from Wikipedia.</p>
+
+
+{% endblock %}

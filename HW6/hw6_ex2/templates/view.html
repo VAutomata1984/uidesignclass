@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"> </script>
+
+
+<h1> {{cafes[id].title}}</h1>
+<img style="height:300px; width: 400px;" src="{{cafes[id].image}}"> 
+<br>
+<p>  <b> Summary: </b> {{cafes[id].summary}} </p>
+<p>  <b> Location: </b> {{cafes[id].location}} </p>
+<p>  <b> Rating: </b> {{cafes[id].rating}} </p>
+<p>  <b> Review: </b> {{cafes[id].review}} </p>
+<br> 
+<p>  <b> Similar Games: </b> 
+  {% for similar_id in cafes[id].similar %}
+    {{cafes[similar_id].title}}{% if not loop.last %}, {% endif %}
+  {% endfor %}
+</p>
+
+{% endblock %}

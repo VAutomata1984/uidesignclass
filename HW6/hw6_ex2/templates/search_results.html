@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"> </script>
+
+<h1> Results for "{{ search_text }}" </h1>
+
+<div>
+  <ul>
+    {% if results %}
+      {% for result in results %}
+      <li> <a href="/view/{{result['id']}}"> {{ result['title'] }} </a></li>
+      {% endfor %}
+    {% else %}
+    <br> 
+    <h2> No results found.</h2>
+    {% endif %}
+  </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{url_for('static', filename='homepage.js')}}"> </script>
+
+<h1> ScareMii - Your destination for all things horror. </h1>
+<p> ScareMii is your nexus for all things horror. We know just the right game that will scare the crap out of you.</p>
+
+<br> 
+<h2> Most Popular Horror Games This Month:</h2>
+
+<p> <a href="/view/1"> {{games["1"].title}} </a> </p>
+<p> <a href="/view/7"> {{games["7"].title}} </a> </p>
+<p> <a href="/view/15"> {{games["15"].title}} </a> </p>
+
+
+
+{% endblock %}
